@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1 align="center">Funds</h1>
+<ul class="list-group list-group-flush" id="funds">
+  {% for fund in user.funds %}
+  <li class="list-group-item">
+    {{ fund.data }}
+    <button type="button" class="close" onClick="deleteFund({{ fund.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+  <textarea name="fund" id="fund" class="form-control"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Fund</button>
+  </div>
+</form>
+{% endblock %}
